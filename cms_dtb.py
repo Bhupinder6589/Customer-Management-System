@@ -12,7 +12,7 @@ class customer:
 
 
     def addcustomer(self):
-        conn=connect(host='localhost',database='my_db',user='root',password='tinku123')
+        conn=connect(host='localhost',database='#####',user='root',password='#####')
         cursor=conn.cursor()
         cursor.execute(f"insert into custab values('{self.id}','{self.name}','{self.address}','{self.mob}')")
         conn.commit()
@@ -20,7 +20,7 @@ class customer:
         conn.close()
 
     def searchcust(self,id):
-        conn = connect(host='localhost', database='my_db', user='root', password='tinku123')
+        conn = connect(host='localhost', database='######', user='root', password='#######')
         cursor = conn.cursor()
         number=cursor.execute(f"select * from custab where cusid='{id}'")
         if(number):
@@ -34,7 +34,7 @@ class customer:
             raise Exception
 
     def deletecust(self,id):
-        conn = connect(host='localhost', database='my_db', user='root', password='tinku123')
+        conn = connect(host='localhost', database='######', user='root', password='######')
         cursor = conn.cursor()
         if(cursor.execute(f"select * from custab where cusid='{id}'")):
             cursor.execute(f"delete from custab where cusid='{id}'")
@@ -44,7 +44,7 @@ class customer:
             raise Exception
 
     def modifycust(self,id,name,address,mob):
-        conn = connect(host='localhost', database='my_db', user='root', password='tinku123')
+        conn = connect(host='localhost', database='######', user='root', password='#####')
         cursor = conn.cursor()
         if(cursor.execute(f"select * from custab where cusid='{id}'")):
             cursor.execute(f"update custab set cusname='{name}',cusadd='{address}',cusmob='{mob}' where cusid='{id}'")
@@ -55,7 +55,7 @@ class customer:
 
     @staticmethod
     def sortcus():
-        conn = connect(host='localhost', database='my_db', user='root', password='tinku123')
+        conn = connect(host='localhost', database='######', user='root', password='######')
         cursor = conn.cursor()
         number=cursor.execute("select * from custab order by cusmob asc")
         print(number)
@@ -72,7 +72,7 @@ class customer:
 
     @staticmethod
     def show_data():
-        conn=connect(host='localhost',database='my_db',user='root',password='tinku123')
+        conn=connect(host='localhost',database='######',user='root',password='#####')
         cursor=conn.cursor()
         number=cursor.execute("select * from custab")
         cursor.close()
@@ -83,7 +83,7 @@ class customer:
             raise Exception
     @staticmethod
     def deleteallcus():
-        conn = connect(host='localhost', database='my_db', user='root', password='tinku123')
+        conn = connect(host='localhost', database='######', user='root', password='#######')
         cursor = conn.cursor()
         cursor.execute(f'delete from custab')
         conn.commit()
